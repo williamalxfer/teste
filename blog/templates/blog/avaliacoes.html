@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %} 
+{% load static %}
+
+{% block content %}
+
+ <br>
+ <hr>
+ <center>
+<div class="content_wrapper row">
+
+	<div id="content_area" class="col-sm-12"> 
+		
+		<div class="tab-content" id="nav-tabContent">
+			{% if lista_produtos %}
+				<div class="card-deck justify-content-end">
+				{% for p in lista_produtos %}
+					<div class="col-sm-4">
+						<br>
+						<div class="card" style="width: 18rem;">
+						   <center>
+						   <div class="col-sm">
+							  <img src="media/{{ p.foto }}" height='30%' width="40%" alt="imagem não disponivel">
+						   </div>
+						   <div class="card-body">
+							  <h5 class="card-title"> {{p.nome}} </h5>
+							  <p class="card-text"> <b> R$ {{p.valor}} </b> </p>
+							  <a href="/blog/{{p.id}}/detalhe_produto" class="btn btn-success"> COMPRAR </a>
+							  <hr>
+							  <i class="fas fa-eye"></i> {{ p.visualizacoes }}
+							  &emsp;
+							  <i class="far fa-thumbs-down"></i> {{ p.descurtidas }}
+							  &emsp;
+							  <i class="far fa-thumbs-up"></i> {{ p.curtidas }}
+						   </div>
+						   </center>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			{% else %}
+				  <div class="text-center mt-5 mb-5 jumbotron">
+						<h5> Nenhum produto cadastrado </h5>
+				  </div>
+			{% endif %}
+	
+	</div>
+	
+</div>
+</center>
+ <hr>
+
+{% endblock %}

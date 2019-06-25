@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %} 
+{% load static %}
+
+
+{% block content %}
+<h1> Trabalho #3 - Final </h1>
+
+<p> Oi! {{ x }} Hoje é dia {{ y }}.</p> 
+
+<h4>
+Este trabalho deverá ser desenvolvido em grupos de até 3 pessoas. Cada grupo deverá propor o
+desenvolvimento de uma pequena aplicação Django atendendo no mínimo os seguintes requisitos: 
+</h4><br>
+1. Devem ser implementados no mínimo 2 modelos com diferentes tipos de campos.<br>
+2. Deve haver no mínimo um relacionamento 1 para n entre os modelos da aplicação.<br>
+3. Os templates devem usar o recurso de extensão de templates para implementar cabeçalho e
+rodapé em comum em todas as áreas da aplicação.<br>
+4. Deve ser implementado pelo menos 1 formulário específico da aplicação (formulário para login
+ou registro de usuário não contam).<br>
+5. A aplicação deve ter algum recurso/ação que apenas usuários administradores podem acessar.<br>
+6. Caso um usuários não autenticados tente acessar qualquer parte do sistema ele deve direcio-
+nado para a tela de login ou de registro.<br>
+7. Deve ser incluídos arquivos estáticos, como por exemplo: imagens, css, js, etc.<br>
+8. Para desenvolver o sistema deve ser usada a biblioteca Bootstrap. Qualquer estilização deve
+ser feita exclusivamente usando classes pré-definidas do Bootstrap.<br>
+9. Pelo menos 5 ícones da biblioteca FontAwesome (https://fontawesome.com/icons?d=
+gallery) precisam ser incluídos em funções do sistema. Não devem ser incluídas imagens
+para representar ícones que não sejam desta biblioteca.<br>
+
+{% endblock %}

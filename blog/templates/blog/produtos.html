@@ -1,0 +1,214 @@
+{% extends 'blog/base.html' %} 
+{% load static %}
+
+{% block content %}
+
+ <br>
+ <hr>
+ <center>
+<div class="content_wrapper row">
+ 
+<div id="sidebar" class="col-sm-3"> 
+<br>
+
+	<div class="row">
+	  <div class="col-sm">
+		<div class="list-group" id="list-tab" role="tablist">
+		  <b> A </b>
+			 <a class="list-group-item list-group-item-action active" id="list-aperitivos-list" data-toggle="list" href="#list-aperitivos" role="tab" aria-controls="aperitivos"> Aperitivos </a>
+		  <b> B </b>
+			 <a class="list-group-item list-group-item-action" id="list-bebidas-list" data-toggle="list" href="#list-bebidas" role="tab" aria-controls="bebidas"> Bebidas </a>
+			 <a class="list-group-item list-group-item-action" id="list-biscoitos-list" data-toggle="list" href="#list-biscoitos" role="tab" aria-controls="biscoitos"> Biscoitos </a>
+		  <b> C </b>
+			 <a class="list-group-item list-group-item-action" id="list-carnes-list" data-toggle="list" href="#list-carnes" role="tab" aria-controls="carnes"> Carnes </a>
+		  <b> M </b>
+			 <a class="list-group-item list-group-item-action" id="list-massas-list" data-toggle="list" href="#list-massas" role="tab" aria-controls="massas"> Massas </a>
+		</div>
+	  </div>
+	</div>
+	
+</div>
+
+	<div id="content_area" class="col-sm-8"> 
+		
+		<div class="tab-content" id="nav-tabContent">
+		
+			<div class="tab-pane fade show active" id="list-aperitivos" role="tabpanel" aria-labelledby="list-aperitivos-list">
+			{% if lista_aperitivos %}
+				<div class="card-deck justify-content-end">
+				{% for p in lista_aperitivos %}
+					<div class="col-sm-6">
+						<br>
+						<div class="card" style="width: 18rem;">
+						   <center>
+							  <img src="media/{{ p.foto }}" height='30%' width="40%" alt="imagem não disponivel">
+						   <div class="card-body">
+							  <h5 class="card-title"> {{p.nome}} </h5>
+							  <p class="card-text"> <b> R$ {{p.valor}} </b> </p>
+								<a href="/blog/{{p.id}}/detalhe_produto" class="btn btn-success"> COMPRAR </a>
+							  <hr>
+							  {% if user.is_superuser %}
+								<a href="/blog/{{p.id}}/excluir"><i class="fas fa-trash-alt"></i></a>
+								&emsp;
+							  {% endif %}
+							  <i class="far fa-thumbs-down"></i> {{ p.descurtidas }}
+							  &emsp;
+							  <i class="far fa-thumbs-up"></i> {{ p.curtidas }}
+						   </div>
+						   </center>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			{% else %}
+				  <div class="text-center mt-5 mb-5 jumbotron">
+						<h5> Nenhum produto nesta categoria foi cadastrado ainda </h5>
+				  </div>
+			{% endif %}
+			</div>
+			<div class="tab-pane fade show" id="list-bebidas" role="tabpanel" aria-labelledby="list-bebidas-list">
+			{% if lista_bebidas %}
+				<div class="card-deck justify-content-end">
+				{% for p in lista_bebidas %}
+					<div class="col-sm-6">
+						<br>
+						<div class="card" style="width: 18rem;">
+						   <center>
+							  <img src="media/{{ p.foto }}" height='30%' width="40%" alt="imagem não disponivel">
+						   <div class="card-body">
+							  <h5 class="card-title"> {{p.nome}} </h5>
+							  <p class="card-text"> <b> R$ {{p.valor}} </b> </p>
+							  <a href="/blog/{{p.id}}/detalhe_produto" class="btn btn-success"> COMPRAR </a>
+							  <hr>
+							  {% if user.is_superuser %}
+								<a href="/blog/{{p.id}}/excluir"> <i class="fas fa-trash-alt"></i> </a>
+								&emsp;
+							  {% endif %}
+							  &emsp;
+							  <i class="far fa-thumbs-down"></i> {{ p.descurtidas }}
+							  &emsp;
+							  <i class="far fa-thumbs-up"></i> {{ p.curtidas }}
+						   </div>
+						   </center>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			{% else %}
+				  <div class="text-center mt-5 mb-5 jumbotron">
+						<h5> Nenhum produto nesta categoria foi cadastrado ainda </h5>
+				  </div>
+			{% endif %}
+			</div>
+			<div class="tab-pane fade" id="list-biscoitos" role="tabpanel" aria-labelledby="list-biscoitos-list">
+			{% if lista_biscoitos %}
+				<div class="card-deck justify-content-end">
+				{% for p in lista_biscoitos %}
+					<div class="col-sm-6">
+						<br>
+						<div class="card" style="width: 18rem;">
+						   <center>
+							  <img src="media/{{ p.foto }}" height='30%' width="40%" alt="imagem não disponivel">
+						   <div class="card-body">
+							  <h5 class="card-title"> {{p.nome}} </h5>
+							  <p class="card-text"> <b> R$ {{p.valor}} </b> </p>
+							  <a href="/blog/{{p.id}}/detalhe_produto" class="btn btn-success"> COMPRAR </a>
+							  <hr>
+							  {% if user.is_superuser %}
+								<a href="/blog/{{p.id}}/excluir"> <i class="fas fa-trash-alt"></i> </a>
+								&emsp;
+							  {% endif %}
+							  &emsp;
+							  <i class="far fa-thumbs-down"></i> {{ p.descurtidas }}
+							  &emsp;
+							  <i class="far fa-thumbs-up"></i> {{ p.curtidas }}
+						   </div>
+						   </center>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			{% else %}
+				  <div class="text-center mt-5 mb-5 jumbotron">
+						<h5> Nenhum produto nesta categoria foi cadastrado ainda </h5>
+				  </div>
+			{% endif %}
+			</div>
+			<div class="tab-pane fade" id="list-carnes" role="tabpanel" aria-labelledby="list-carneslist">
+			{% if lista_carnes %}
+				<div class="card-deck justify-content-end">
+				{% for p in lista_carnes %}
+					<div class="col-sm-6">
+						<br>
+						<div class="card" style="width: 18rem;">
+						   <center>
+							  <img src="media/{{ p.foto }}" height='30%' width="40%" alt="imagem não disponivel">
+						   <div class="card-body">
+							  <h5 class="card-title"> {{p.nome}} </h5>
+							  <p class="card-text"> <b> R$ {{p.valor}} </b> </p>
+							  <a href="/blog/{{p.id}}/detalhe_produto" class="btn btn-success"> COMPRAR </a>
+							  <hr>
+							  {% if user.is_superuser %}
+								<a href="/blog/{{p.id}}/excluir"> <i class="fas fa-trash-alt"></i> </a>
+								&emsp;
+							  {% endif %}
+							  &emsp;
+							  <i class="far fa-thumbs-down"></i> {{ p.descurtidas }}
+							  &emsp;
+							  <i class="far fa-thumbs-up"></i> {{ p.curtidas }}
+						   </div>
+						   </center>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			{% else %}
+				  <div class="text-center mt-5 mb-5 jumbotron">
+						<h5> Nenhum produto nesta categoria foi cadastrado ainda </h5>
+				  </div>
+			{% endif %}
+			</div>
+			<div class="tab-pane fade" id="list-massas" role="tabpanel" aria-labelledby="list-massas-list">
+			{% if lista_massas %}
+				<div class="card-deck justify-content-end">
+				{% for p in lista_massas %}
+					<div class="col-sm-6">
+						<br>
+						<div class="card" style="width: 18rem;">
+						   <center>
+							  <img src="media/{{ p.foto }}" height='30%' width="40%" alt="imagem não disponivel">
+						   <div class="card-body">
+							  <h5 class="card-title"> {{p.nome}} </h5>
+							  <p class="card-text"> <b> R$ {{p.valor}} </b> </p>
+							  <a href="/blog/{{p.id}}/detalhe_produto" class="btn btn-success"> COMPRAR </a>
+							  <hr>
+							  {% if user.is_superuser %}
+								<a href="/blog/{{p.id}}/excluir"> <i class="fas fa-trash-alt"></i> </a>
+								&emsp;
+							  {% endif %}
+							  &emsp;
+							  <i class="far fa-thumbs-down"></i> {{ p.descurtidas }}
+							  &emsp;
+							  <i class="far fa-thumbs-up"></i> {{ p.curtidas }}
+						   </div>
+						   </center>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			{% else %}
+				  <div class="text-center mt-5 mb-5 jumbotron">
+						<h5> Nenhum produto nesta categoria foi cadastrado ainda </h5>
+				  </div>
+			{% endif %}
+			</div>
+		
+		</div>
+	
+	</div>
+	
+</div>
+</center>
+ <hr>
+
+{% endblock %}

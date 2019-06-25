@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %} 
+{% load static %}
+
+{% block content %}
+
+<br>
+<hr>
+
+<div class="card mb-3" style="max-width: 700px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+		<img src="media/{{p.foto}}" height='70%' width="100%" alt="imagem não disponivel">
+	  <center>
+	  Avalie o produto: <br>
+	  <a href="/blog/{{p.id}}/descurtir"><i class="far fa-thumbs-down" style="color: red;"></i></a> {{ p.descurtidas }}
+	  &emsp;&emsp;
+	  <a href="/blog/{{p.id}}/curtir"><i class="far fa-thumbs-up" style="color: blue;"></i></a> {{ p.curtidas }}
+	  </center>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> <b> {{p.nome}} </b> </h5>
+        <p class="card-text"> <b> Descrição: </b> {{p.descricao}} </p>
+		<p class="card-text"> <b> Unidade: </b> {{p.unidade}} </p>
+		<p class="card-text"> <b> Quantidade em estoque: </b> {{p.quantidade}} </p>
+		<a href="/blog/{{p.id}}/comprar" class="btn btn-primary"> Comprar </a>
+		&emsp;
+		<a href="/blog/produtos" class="btn btn-secondary"> Voltar ao painel de compras </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+{% endblock %}  
